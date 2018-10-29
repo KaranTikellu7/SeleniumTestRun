@@ -1,2 +1,3 @@
 # SeleniumTestRun
-Checking Selenium Test run
+Adding selenium webdriver tests for 
+http://staging.aceinvoice.com
