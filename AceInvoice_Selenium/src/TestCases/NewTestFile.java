@@ -32,5 +32,6 @@ public class NewTestFile {
 		
 		System.out.println("TEST CASE PASSED");
 		
+		driver.quit();
 	}
 }

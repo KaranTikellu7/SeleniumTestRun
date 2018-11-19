@@ -1,4 +1,4 @@
-package SignUP;
+package TestCases;
 
 import static org.testng.Assert.assertTrue;
 
@@ -8,26 +8,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class SignUP {
 
 	static WebDriver driver;
 
-	@BeforeClass()
-	public void InvokeBrowser() {
-		System.setProperty("webdriver.chrome.driver", "E:\\Selenium\\selenium 64 bit\\chromedriver.exe");
+	@Test()
+	public void SignUPfields() {
+
+		String path = System.getProperty("user.dir"); 
+		System.setProperty("webdriver.chrome.driver",path+"\\drivers\\chromedriver.exe");
+		
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
 		driver.get("http://staging.aceinvoice.com/sign_up");
-
-	}
-
-	@Test()
-	public void SignUPfields() {
 
 		// To check the *Email text dispaly on top of the email textbox.
 		String Mandatoryfield = driver
@@ -86,6 +83,7 @@ public class SignUP {
 		String SignIN = driver.findElement(By.partialLinkText("in")).getText();
 		assertTrue(SignIN.contains("Sign in"));
 
+		driver.quit();
 	}
 
 }
